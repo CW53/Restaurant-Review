@@ -58,11 +58,11 @@ self.addEventListener('fetch', function(e) {
         console.log('Found', e.request.url, 'in cache');
         return response;
       }
-      else {
+      
         var requestClone = e.request.clone();
         
-        return fetch(requestClone)
-        .then(function(response) {
+        return fetch(requestClone).then(
+          function(response) {
           if(!response) {
             console.log('No response. End Transmission');
             return response;
@@ -70,16 +70,15 @@ self.addEventListener('fetch', function(e) {
       
   var responseClone = response.clone();
   
-  return caches.open(CacheName)
+ caches.open(CacheName)
   .then(function(cache) {
     cache.put(e.request, responseClone);
-    
+  });
     return response;
   })
     .catch(function(err) {
       console.log('What?');
     });
-        });
-   
+       
       
 
