@@ -24,7 +24,7 @@ self.addEventListener('install',function(e) {
   console.log('ServiceWorker Installed');
   
     e.waitUntil(
-      caches.open('CacheName').then(function(cache){
+      caches.open('CacheName').then(function(cache) {
         console.log('Caching cacheFiles');
         return cache.addAll(cacheFiles);
       })
@@ -58,7 +58,9 @@ self.addEventListener('fetch', function(e) {
         console.log('Found', e.request.url, 'in cache');
         return response;
       }
-      
+      })
+    );
+
         var requestClone = e.request.clone();
         
         return fetch(requestClone).then(
@@ -79,6 +81,4 @@ self.addEventListener('fetch', function(e) {
     .catch(function(err) {
       console.log('What?');
     });
-       
-      
-
+});
