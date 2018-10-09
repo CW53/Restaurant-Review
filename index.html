@@ -24,7 +24,6 @@
     <section id="map-container">
       <div id="map" aria-label="location" role="application"></div>
     </section>
-    <div id='map' style='width: 400px; height: 300px;'></div>
 <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoiY2FycmlldzUzIiwiYSI6ImNqbXYxdzBlZDBkM2kza25vMDAzd3lqdTEifQ.TyQfBGfBV8hvpwUAPl2cWg';
   var map = new mapboxgl.Map({
@@ -36,7 +35,7 @@
     <section>
       <div class="filter-options">
         <h2>Filter Results</h2>
-        <select role="tablist" tabindex="2" id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+        <select role="tablist" tabindex="0" id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
           <option value="all">All Neighborhoods</option>
         </select>
         <select tabindex="2" id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
